@@ -16,7 +16,7 @@ Link a config:
 
 ```sh
 # Example: linking `foot` configuration
-ln -sf ~/.dotfiles/.config/foot ~/.config/foot
+ln -sf ~/.dotfiles/.config/foot ~/.config
 ```
 
 - `ln -s`: Create a symbolic link
