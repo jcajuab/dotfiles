@@ -37,3 +37,4 @@ symlink() {
 symlink fish
 symlink foot
 symlink starship
+symlink tofi

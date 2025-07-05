@@ -11,7 +11,7 @@ cd ~/.dotfiles
 - [ ] Add [Neovim](https://github.com/neovim/neovim)
 - [ ] Add [Niri](https://github.com/YaLTeR/niri)
 - [ ] Add [Waybar](https://github.com/Alexays/Waybar)
-- [ ] Add [Tofi](https://github.com/philj56/tofi)
+- [x] Add [Tofi](https://github.com/philj56/tofi)
 - [ ] Add [Mako](https://github.com/emersion/mako)
 - [ ] Update `setup`
   - [ ] Enable dynamic config selection
