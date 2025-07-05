@@ -1,25 +1,19 @@
 include = ./themes/catppuccin-mocha
 
 font = "CommitMono Nerd Font"
-font-size = 14
 
 text-cursor-style = block
 
-prompt-text = " run: "
-result-spacing = 15
-horizontal = true
-min-input-width = 120
+num-results = 5
+result-spacing = 25
 
 width = 100%
-height = 30
+height = 100%
+background-color = #000a
 outline-width = 0
 border-width = 0
-padding-top = 0
-padding-bottom = 0
-padding-left = 0
-padding-right = 0
-
-anchor = top
+padding-top = 35%
+padding-left = 35%
 
 hide-cursor = true
 text-cursor = true
