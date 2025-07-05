@@ -16,8 +16,6 @@ error_symbol = "[λ](bold red)"
 vimcmd_symbol = "[Λ](bold green)"
 
 [directory]
-truncation_length = 1
-truncate_to_repo = false
 style = "blue"
 fish_style_pwd_dir_length = 1
 
