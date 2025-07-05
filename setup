@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+symlink() {
+    if [[ $# -lt 1 ]]; then
+        echo "Usage: $0 <source> [target_directory]"
+        return 1
+    fi
+
+    local src="$(realpath -- "$1")"
+
+    local target_dir="${2:-$HOME/.config}"
+    local target="$target_dir/$(basename -- "$src")"
+
+    mkdir -p -- "$target_dir" # Create parent directory
+
+    local create_symlink=true
+
+    if [[ -e $target || -L $target ]]; then
+        read -rp "$target exists. Do you want to remove it? (y/N): " answer
+        if [[ $answer =~ ^[Yy]$ ]]; then
+            rm -rf -- "$target"
+            echo "Removed $target"
+        else
+            echo "Skipping $target"
+            create_symlink=false
+        fi
+    fi
+
+    if $create_symlink; then
+        ln -snf -- "$src" "$target"
+        echo "Created $target -> $src"
+    fi
+}
+
+symlink fish
+symlink foot
+symlink starship
