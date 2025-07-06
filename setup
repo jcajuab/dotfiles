@@ -66,7 +66,7 @@ symlink() {
     done
 }
 
-require --command realpath fc-list
-require --font mononoki
+require --command 'realpath' 'fc-list'
+require --font 'CommitMono' 'Inter'
 
-symlink fish foot starship
+symlink 'fish' 'foot' 'starship'
