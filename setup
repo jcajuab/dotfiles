@@ -2,6 +2,20 @@
 
 set -euo pipefail
 
+require() {
+    local list=$1
+    local missing=0
+
+    for cmd in $list; do
+        if ! command -v "$cmd" >/dev/null 2>&1; then
+            echo "'$cmd' command not found" >&2
+            missing=1
+        fi
+    done
+
+    return "$missing"
+}
+
 symlink() {
     if [[ $# -lt 1 ]]; then
         echo "Usage: $0 <source> [target_directory]"
@@ -13,7 +27,7 @@ symlink() {
     local target_dir="${2:-$HOME/.config}"
     local target="$target_dir/$(basename -- "$src")"
 
-    mkdir -p -- "$target_dir" # Create parent directory
+    mkdir -p -- "$target_dir"
 
     local create_symlink=true
 
@@ -32,6 +46,13 @@ symlink() {
         ln -snf -- "$src" "$target"
         echo "Created $target -> $src"
     fi
+}
+
+require 'fc-list realpath'
+
+[[ -n $(fc-list 'mononoki') ]] || {
+    echo 'Install mononoki (https://madmalik.github.io/mononoki/)'
+    exit 1
 }
 
 symlink fish
