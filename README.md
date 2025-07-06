@@ -10,6 +10,3 @@ cd ~/.dotfiles
 
 - [ ] Add [Neovim](https://github.com/neovim/neovim)
 - [ ] Add [Zellij](https://zellij.dev/)
-- [ ] Update `setup`
-  - [ ] Enable dynamic config selection
-  - [ ] Install dependencies based on selected config (e.g., selecting "Fish" installs Fish and optional dependencies like Bun)
