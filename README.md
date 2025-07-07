@@ -63,8 +63,5 @@ fc-cache -fv
 
 ## To-dos
 
-- [ ] Add [Lix](https://lix.systems/)
-  - [ ] Add [direnv](https://direnv.net/)
-  - [ ] Add [nix-direnv](https://github.com/nix-community/nix-direnv)
 - [ ] Add [Neovim](https://github.com/neovim/neovim)
 - [ ] Add [Zellij](https://zellij.dev/)
