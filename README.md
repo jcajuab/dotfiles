@@ -49,6 +49,19 @@ fc-cache -fv
   chsh -s $(which fish) # Set Fish as default shell
   ```
 
+  - [Bun](https://bun.sh/)
+
+    ```sh
+    curl -fsSL https://bun.sh/install | bash
+    ```
+
+  - [Nix](https://nixos.org/)
+
+    ```sh
+    curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh -s -- --no-daemon # Single-user installation
+    rm ~/.config/fish/conf.d/nix.fish # Not needed; auto-generated
+    ```
+
 - [Foot](https://codeberg.org/dnkl/foot)
 
   ```sh
