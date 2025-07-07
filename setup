@@ -69,4 +69,4 @@ symlink() {
 require --command 'realpath' 'fc-list'
 require --font 'CommitMono' 'Inter'
 
-symlink 'fish' 'foot' 'starship' 'nix'
+symlink 'direnv' 'fish' 'foot' 'starship' 'nix'

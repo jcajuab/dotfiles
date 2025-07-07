@@ -62,6 +62,12 @@ fc-cache -fv
     rm ~/.config/fish/conf.d/nix.fish # Not needed; auto-generated
     ```
 
+    - [direnv](https://direnv.net/) + [nix-direnv](https://github.com/nix-community/nix-direnv)
+
+    ```sh
+    nix profile install nixpkgs#direnv nixpkgs#nix-direnv
+    ```
+
 - [Foot](https://codeberg.org/dnkl/foot)
 
   ```sh
