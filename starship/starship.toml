@@ -1,7 +1,48 @@
 add_newline = false
-format = "$username$hostname$directory$character"
-right_format = "$git_branch"
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
 palette = "dracula"
+
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
+vimcmd_symbol = "[Λ](bold green)"
+
+[cmd_duration]
+style = "bold yellow"
+
+[directory]
+style = "bold green"
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+style = "bold pink"
+symbol = "git "
+
+[git_status]
+style = "bold red"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[hostname]
+style = "bold purple"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold cyan"
 
 [palettes.dracula]
 background = "#282a36"
@@ -15,21 +56,3 @@ pink = "#ff79c6"
 purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
-
-[character]
-success_symbol = "[λ](bold green)"
-error_symbol = "[λ](bold red)"
-vimcmd_symbol = "[Λ](bold green)"
-
-[directory]
-style = "green"
-
-[git_branch]
-format = "[$branch]($style)"
-style = "bold pink"
-
-[hostname]
-style = "purple"
-
-[username]
-style_user = "cyan"
