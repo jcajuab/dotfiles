@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+require() {
+    local flag=${1:---command}
+    shift
+    local result=0 item
+
+    for item in "$@"; do
+        case "$flag" in
+            -c | --command)
+                command -v "$item" >/dev/null 2>&1 || {
+                    printf >&2 "Command missing: %s\n" "$item"
+                    result=1
+                }
+                ;;
+            -f | --font)
+                [[ -n $(fc-list "$item" 2>/dev/null) ]] || {
+                    printf >&2 "Font missing: %s\n" "$item"
+                    result=1
+                }
+                ;;
+            *)
+                printf >&2 'Invalid require flag: %s\n' "$flag"
+                return 1
+                ;;
+        esac
+    done
+    return "$result"
+}
+
+symlink() {
+    local arg src_arg target_path src_abs create_link answer
+
+    for arg in "$@"; do
+        if [[ $arg == *:* ]]; then
+            IFS=: read -r src_arg target_path <<<"$arg"
+        else
+            src_arg="$arg"
+            target_path="${HOME}/.config/$(basename -- "$src_arg")"
+        fi
+
+        if ! src_abs=$(realpath -- "$src_arg" 2>/dev/null); then
+            printf >&2 "Source not found: %s\n" "$src_arg"
+            continue
+        fi
+
+        create_link=true
+        if [[ -e $target_path || -L $target_path ]]; then
+            read -rp "${target_path} exists. Replace? (y/N) " answer
+            [[ $answer =~ ^[Yy]$ ]] && {
+                rm -rf -- "$target_path"
+                printf "Removed %s\n" "$target_path"
+            } || {
+                printf "Skipped %s\n" "$target_path"
+                create_link=false
+            }
+        fi
+
+        if "$create_link"; then
+            mkdir -p -- "$(dirname -- "$target_path")"
+            ln -snf -- "$src_abs" "$target_path"
+            printf "Linked %s → %s\n" "$target_path" "$src_abs"
+        fi
+    done
+}
+
+require --command 'fc-list'
+require --font 'CommitMono'
+
+symlink 'direnv' 'fish' 'foot' 'nix' 'starship'
