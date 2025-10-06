@@ -43,7 +43,7 @@ Open the System Settings app, then navigate to **Power Management** and set the 
 ## Essentials
 
 > [!NOTE]
-> "Essentials" is opinionated.
+> "Essentials" is subjective.
 
 ```sh
 sudo dnf install git git-lfs gh stow kitty fish fd-find ripgrep
@@ -66,6 +66,9 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daem
 ```
 
 ## Remove Bloatware
+
+> [!NOTE]
+> "Bloatware" is subjective.
 
 ```sh
 sudo dnf remove firefox kmahjongg kmines konsole kpat
